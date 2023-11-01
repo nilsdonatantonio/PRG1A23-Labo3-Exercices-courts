@@ -21,7 +21,7 @@ string en_base(unsigned int n, int b){
         }else{
             output += to_string(n % b);
         }
-        
+
         n /= b;
     }
     reverse(output.begin(), output.end());
