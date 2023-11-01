@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -7,7 +8,25 @@ using namespace std;
 // Cette fonction doit fonctionner pour n positif ou nul et
 // pour b entre 2 et 36. Les chiffres de 10 à 35 utilisent
 // les lettres majuscules de A à Z.
-
+string en_base(unsigned int n, int b){
+    string output;
+    if (n == 0){
+        output = '0';
+        return output;
+    }
+    while(n != 0){
+        if((n % b) > 9){
+            int temp = n % b;
+            output += '7' + temp;
+        }else{
+            output += to_string(n % b);
+        }
+        
+        n /= b;
+    }
+    reverse(output.begin(), output.end());
+    return output;
+}
 int main() {
 
   for(int b = 2; b <= 36; ++b)
